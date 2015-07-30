@@ -1,0 +1,17 @@
+<ion-view view-title="Movies">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-navicon" ui-sref="app.newMovie">
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="movie in movies" href="#/app/movies/{{movie._id}}/view">
+                {{movie.title}}
+                <ion-option-button class="button-positive" ui-sref="app.editMovie({id: {{movie._id}}})" ">Edit</ion-option-button>
+                <ion-option-button class="button-assertive" ng-click="deleteMovie(movie)">Delete</ion-option-button>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>
