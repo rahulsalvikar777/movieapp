@@ -29,11 +29,8 @@ angular.module('ClientAPI.services', [])
             passUrl:_passUrl,
             passParameters: _passParameters,
             callAPIClient : function(){
-                return  $resource( 'http://movieapp-sitepointdemos.rhcloud.com/api/movies/:id', {id: '@_id'}, {
-                    save: {
-                        method: 'POST'
-                    },
-                    update: {
+                return  $resource( this.passUrl, this.passParameters, {
+                    'update': {
                         method: 'PUT'
                     }
                 })
